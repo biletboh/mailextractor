@@ -1,0 +1,17 @@
+{% extends "mailapp/base.html" %}
+{% block content %}
+
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12 col-sm-4 col-md-4">
+      <img class="img-responsive img-circle" src="{{user.user_profile.image_url}}" alt="Profile Image">
+      <p> {{user}} </p>
+      <p> {{user.email}}</p>
+      <p> {{user.user_profile.gender}}</p>
+    </div>
+  </div>
+  <a href='/logout'>Logout</a>
+  
+</div>
+
+{% endblock %}

@@ -1,0 +1,39 @@
+{% extends "mailapp/base.html" %}
+{% load widget_tweaks %}
+{% block content %}
+
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12 col-sm-12 col-md-12">
+      <form method="post" action="">
+        <div class="form-group-custom box login">
+          <h3 class="text-center">Mail Extractor</h3>
+          {% csrf_token %}
+          {% for field in form %}
+          <div class = "form-group-item">
+            {{field.label_tag}}
+            {{ field|attr:"class:form-control form-custom"}}
+            {{ field.errors }}
+          </div>
+          {% endfor %}
+          {% if form.errors %}
+          <div class="form-group-item text-danger">
+            "Your username and password didn't match. Please try again." 
+          </div>
+          {% endif %}
+          <div class="form-group-item margin-top google-button">
+            <input type="submit" class="btn btn-primary" value="login" />
+          </div>
+          <hr>
+          <div class="form-group-item margin-top google-button">
+            <a class="btn btn-primary" href="{% url "social:begin" "google-oauth2" %}"><i class="fa fa-google fa-1x" aria-hidden="true"></i></a>
+            <p> Login via Google account </p>
+          </div>
+          <input type="hidden" name="next" value="{{ next }}" />
+
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+{% endblock %}
