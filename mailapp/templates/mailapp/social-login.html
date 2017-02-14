@@ -2,12 +2,14 @@
 {% load widget_tweaks %}
 {% block content %}
 
-<div class="container">
+<div class="container wrapper">
   <div class="row">
     <div class="col-xs-12 col-sm-12 col-md-12">
       <form method="post" action="">
         <div class="form-group-custom box login">
-          <h3 class="text-center">Mail Extractor</h3>
+          <h3 class="text-left">Mail Extractor</h3>
+          <!-- uncomment in case you want to use django login -->
+          <!--
           {% csrf_token %}
           {% for field in form %}
           <div class = "form-group-item">
@@ -24,6 +26,7 @@
           <div class="form-group-item margin-top google-button">
             <input type="submit" class="btn btn-primary" value="login" />
           </div>
+          -->
           <hr>
           <div class="form-group-item margin-top google-button">
             <a class="btn btn-primary" href="{% url "social:begin" "google-oauth2" %}"><i class="fa fa-google fa-1x" aria-hidden="true"></i></a>

@@ -10,6 +10,7 @@ from django.http import HttpResponse
 from django.http import HttpResponseBadRequest
 from django.http import HttpResponseRedirect
 from django.shortcuts import render, redirect
+from django.contrib.auth.decorators import login_required
 
 from django.contrib.auth.models import User 
 from models import Emails
@@ -48,6 +49,7 @@ FLOW = flow_from_clientsecrets(
         redirect_uri='http://localhost:8000/oauth2callback/gmail/')
 
 # process gmail api, step 1
+@login_required
 def index(request):
     storage = DjangoORMStorage(CredentialsModel, 'id', request.user, 'credential')
     credential = storage.get()
@@ -113,11 +115,12 @@ def index(request):
 
         # log data and return it
         logging.info(full_messageslist)
-        return render(request, 'mailapp/apiredirect.html', {
-            'messageslist': full_messageslist,
-                }) 
+        return render(request, 'mailapp/apiredirect.html', 
+               # {'messageslist': full_messageslist,}
+                ) 
 
 # process gmail api, step 2
+@login_required
 def auth_return(request):
     # validate token 
     if not xsrfutil.validate_token(settings.SECRET_KEY,
@@ -149,6 +152,7 @@ class Mails(LoginRequiredMixin, ListView):
         return context
 
 # logout from the app
+@login_required
 def logout(request):
     auth_logout(request)
     return redirect('/')

@@ -1,19 +1,21 @@
 {% extends "mailapp/base.html" %}
 {% block content %}
 
-<div class="container">
-  <div class="row">
+<div class="container wrapper">
+  <div class="row box">
     <div class="col-xs-12 col-sm-4 col-md-4">
+      <h4> My Profile </h4>
       <img class="img-responsive img-circle" src="{{user.user_profile.image_url}}" alt="Profile Image">
       <p> {{user}} </p>
       <p> {{user.email}}</p>
       <p> {{user.user_profile.gender}}</p>
-    <a href='/logout'>Logout</a>
-  </div>
-  <div class="col-xs-12 col-sm-8 col-md-8">
-    <h3>Extract recent emails from your gmail account</h3>
-    <a href='/profile/mails'>Extract Mails</a>  
+    </div>
+    <div class="col-xs-12 col-sm-8 col-md-8">
+      <h3>Extract recent emails from your gmail account</h3>
+      <a class='btn btn-primary' href="{% url 'mailapp:gmail' %}">Extract Mails</a>  
+      <hr>
+      <p> ...push the button and wait for a while </p>
+    </div>
   </div>
 </div>
-  </div>
 {% endblock %}

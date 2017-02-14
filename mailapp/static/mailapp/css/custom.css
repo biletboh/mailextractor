@@ -1,6 +1,9 @@
 hr {
   border-top: 2px solid #fff
 }
+.wrapper {
+  padding-top: 65px;
+}
 .box {
   background: #EEEEEE;
   border-radius: 4px;
@@ -29,8 +32,9 @@ hr {
   padding: 0 5px;
 }
 .google-button > a {
-  padding: 7px 10px;
-  border-radius: 20%;
+  padding: 7px 15px;
+  border-radius: 10%;
+  border: none;
   background-color: #488EF1;
   color: #FFFFFF;
   display: inline;

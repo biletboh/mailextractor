@@ -9,13 +9,13 @@ router.register(r'emails', views.EmailsViewSet)
 
 urlpatterns = [
     # app urls 
-    url(r'^', include('mailapp.urls')),
+    url(r'^', include('mailapp.urls', namespace='mailapp')),
 
     # django social urls
     url('', include('social_django.urls', namespace='social')),
 
     # rest api urls
-    url(r'^emails-api/', include(router.urls), name='emails-api'),
+    url(r'^emails-api/', include(router.urls)),
     url(r'^api-auth/', include('rest_framework.urls',
     namespace='rest_framework')),
 

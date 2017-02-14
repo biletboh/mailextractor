@@ -1,13 +1,12 @@
-<html>
-<head>
-<title>Your Google+ Activity</title>
-<style type=text/css>
-td  { vertical-align: top; padding: 0.5em }
-img { border:0 }
-</style>
-</head>
-<body>
-<h2> Check Out Mails Api </h2>
-<a href ="/emails-api/emails">Emails Api</a>
-</body>
-</html>
+{% extends "mailapp/base.html" %}
+{% block content %}
+<div class="container wrapper">
+  <div class="row box">
+    <div class="col-xs-12 col-sm-12 col-md-12">
+      <h3> Check Out Mails Api </h3>
+      <p> You have successfully extracted your emails. Now you can work with basic gmail api. </p>
+      <a class="btn btn-primary" href ="/emails-api/emails">Emails Api</a>
+    </div>
+  </div>
+</div>
+{% endblock %}
