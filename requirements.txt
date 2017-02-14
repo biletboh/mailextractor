@@ -4,3 +4,4 @@ djangorestframework
 social-auth-app-django
 google-api-python-client
 django-widget-tweaks
+python-dateutil

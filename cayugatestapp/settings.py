@@ -122,7 +122,7 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
 REST_FRAMEWORK = {
     'DEFAULT_PERMISSION_CLASSES': [
-        'rest_framework.permissions.IsAdminUser',
+        'rest_framework.permissions.IsAuthenticatedOrReadOnly',
     ],
     'PAGE_SIZE': 10
 }
@@ -159,9 +159,11 @@ SOCIAL_AUTH_PIPELINE = (
 )
 
 SOCIAL_AUTH_USER_MODEL = 'auth.User'
-SOCIAL_AUTH_LOGIN_ERROR_URL = '/mails/'
-SOCIAL_AUTH_LOGIN_REDIRECT_URL = '/mails/'
+SOCIAL_AUTH_LOGIN_ERROR_URL = '/profile/'
+SOCIAL_AUTH_LOGIN_REDIRECT_URL = '/profile/'
 
-LOGIN_REDIRECT_URL = '/mails/'
+LOGIN_REDIRECT_URL = '/profile/'
 
-
+# Google API settings
+GOOGLE_OAUTH2_CLIENT_ID = "907439980677-epvhiimqd21m6s5thfhk1mkrurvgj00c.apps.googleusercontent.com" 
+GOOGLE_OAUTH2_CLIENT_SECRET = '5YkrPhSg1II2bpdpVUjTy6Gz'
