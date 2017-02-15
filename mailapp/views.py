@@ -116,7 +116,7 @@ def index(request):
         # log data and return it
         logging.info(full_messageslist)
         return render(request, 'mailapp/apiredirect.html', 
-               # {'messageslist': full_messageslist,}
+                {'messageslist': full_messageslist,}
                 ) 
 
 # process gmail api, step 2
